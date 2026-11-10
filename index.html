@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasuke Mantap & Sate Lezat - Kuliner Favorit</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-amber: #ff9f43;
+            --secondary-orange: #ff5252;
+            --dark-navy: #0a192f;
+            --light-bg: #fff8f0;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--light-bg);
+            color: #333;
+            padding-top: 70px;
+        }
+
+        /* Navbar Custom Styling */
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.98) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary-amber) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active {
+            color: var(--primary-amber) !important;
+            border-bottom: 2px solid var(--primary-amber);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0a192f 0%, #1e3c72 100%);
+            color: white;
+            padding: 90px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+        }
+
+        .hero-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Card Styling */
+        .custom-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            overflow: hidden;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* Section Title */
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--dark-navy);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-amber);
+            border-radius: 2px;
+        }
+
+        /* Nav Pills Styling */
+        .nav-pills .nav-link {
+            color: var(--dark-navy);
+            background-color: #e9ecef;
+            border-radius: 30px;
+            padding: 10px 22px;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-amber);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 159, 67, 0.4);
+        }
+
+        /* Map Container */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-navy);
+            color: #a8b2d1;
+            padding-top: 60px;
+        }
+
+        footer h5 {
+            color: white;
+            font-weight: 600;
+        }
+
+        footer a {
+            color: #a8b2d1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-amber);
+        }
+
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100" tabindex="0">
+
+    <!-- NAVBAR -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#beranda">
+                <i class="bi bi-cup-hot-fill text-warning fs-3 me-2"></i>
+                <span>Jasuke Mantap</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda"><i class="bi bi-house-door me-1"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang"><i class="bi bi-info-circle me-1"></i> Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu"><i class="bi bi-journal-richtext me-1"></i> Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lokasi"><i class="bi bi-geo-alt me-1"></i> Lokasi Outlet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak"><i class="bi bi-envelope me-1"></i> Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="hero-section text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500&auto=format&fit=crop" alt="Jasuke Mantap" class="rounded-circle hero-img img-fluid">
+                </div>
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6 mb-3">
+                        <i class="bi bi-star-fill me-1"></i> Kuliner Nikmat & Kekinian
+                    </span>
+                    <h1 class="display-4 fw-bold mb-2">Selamat Datang di Jasuke Mantap!</h1>
+                    <h3 class="h4 text-light opacity-75 mb-3">Jagung Susu Keju Lumer & Sate Spesial</h3>
+                    <p class="lead text-light opacity-75 mb-4">
+                        Nikmati kelezatan jasuke manis legit gurih dengan keju melimpah dan resep sate istimewa yang bikin ketagihan. Siap menemani waktu bersantai kamu!
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                        <a href="#menu" class="btn btn-warning btn-lg rounded-pill px-4 shadow fw-bold">
+                            <i class="bi bi-bag-check me-2"></i>Pesan Sekarang
+                        </a>
+                        <a href="#lokasi" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                            <i class="bi bi-geo-alt me-2"></i>Lihat Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="py-5">
+        <div class="container py-4">
+            <h2 class="text-center section-title">Tentang Kedai Kami</h2>
+            <div class="row g-4 mt-2">
+                <!-- Info Usaha -->
+                <div class="col-lg-6">
+                    <div class="card custom-card h-100 p-4">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold text-warning mb-4">
+                                <i class="bi bi-shop me-2"></i>Profil Kedai
+                            </h4>
+                            <p class="text-muted">
+                                Jasuke Mantap menyajikan olahan jagung manis pilihan yang disajikan hangat dengan perpaduan susu manis dan keju parut berkualitas. Kami juga melayani pesanan kuliner sate untuk event & santai!
+                            </p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between bg-transparent py-3">
+                                    <span class="fw-bold text-muted"><i class="bi bi-clock me-2"></i>Jam Operasional:</span>
+                                    <span class="fw-semibold">15.00 - 22.00 WIB</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between bg-transparent py-3">
+                                    <span class="fw-bold text-muted"><i class="bi bi-award me-2"></i>Kualitas Bahan:</span>
+                                    <span class="fw-semibold">100% Jagung Manis Segar</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between bg-transparent py-3">
+                                    <span class="fw-bold text-muted"><i class="bi bi-pin-map me-2"></i>Spot Kumpul:</span>
+                                    <span class="fw-semibold">Kantin Jasdam</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keunggulan Menu -->
+                <div class="col-lg-6">
+                    <div class="card custom-card h-100 p-4">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold text-warning mb-4">
+                                <i class="bi bi-hand-thumbs-up me-2"></i>Tingkat Kepuasan Pelanggan
+                            </h4>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-semibold">Rasa Keju & Susu Lumer</span>
+                                    <span class="fw-bold text-warning">98%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 98%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-semibold">Kesegaran Bahan</span>
+                                    <span class="fw-bold text-warning">95%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="fw-semibold">Kecepatan Penyajian</span>
+                                    <span class="fw-bold text-warning">90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU KULINER TAB -->
+    <section id="menu" class="py-5 bg-white">
+        <div class="container py-4">
+            <h2 class="text-center section-title">Pilihan Menu Favorit</h2>
+            <p class="text-center text-muted mb-4">Pilih kategori ukuran cup atau hidangan di bawah ini.</p>
+
+            <!-- Nav Pills -->
+            <ul class="nav nav-pills justify-content-center mb-4" id="menuTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="cup-kecil-tab" data-bs-toggle="pill" data-bs-target="#cup-kecil">Cup Kecil</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="cup-besar-tab" data-bs-toggle="pill" data-bs-target="#cup-besar">Cup Besar</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="sate-tab" data-bs-toggle="pill" data-bs-target="#sate">Spesial Sate</button>
+                </li>
+            </ul>
+
+            <!-- Tab Contents -->
+            <div class="tab-content" id="menuTabContent">
+                
+                <!-- 1. Cup Kecil -->
+                <div class="tab-pane fade show active" id="cup-kecil">
+                    <div class="card custom-card border-start border-warning border-4">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1000&auto=format&fit=crop" class="menu-img" alt="Jasuke Cup Kecil">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="card-title text-warning fw-bold mb-0">Jasuke Cup Kecil</h3>
+                                <span class="badge bg-success fs-5">Rp 5.000</span>
+                            </div>
+                            <h5 class="fw-bold mt-3">Deskripsi Menu:</h5>
+                            <p class="text-muted">Porsi pas untuk cemilan santai! Jagung manis hangat dipadu topping keju parut melimpah dan kental manis yang bikin nagih.</p>
+                            
+                            <a href="https://wa.me/628566277828?text=Halo%20saya%20mau%20pesan%20Jasuke%20Cup%20Kecil" target="_blank" class="btn btn-warning rounded-pill px-4 fw-bold mt-2">
+                                <i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Cup Besar -->
+                <div class="tab-pane fade" id="cup-besar">
+                    <div class="card custom-card border-start border-warning border-4">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1000&auto=format&fit=crop" class="menu-img" alt="Jasuke Cup Besar">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="card-title text-warning fw-bold mb-0">Jasuke Cup Besar (Extra Keju)</h3>
+                                <span class="badge bg-success fs-5">Rp 10.000</span>
+                            </div>
+                            <h5 class="fw-bold mt-3">Deskripsi Menu:</h5>
+                            <p class="text-muted">Porsi puas super kenyang! Penuh dengan lapisan jagung manis renyah, porsi susu ganda, dan topping keju melimpah di atasnya.</p>
+                            
+                            <a href="https://wa.me/628566277828?text=Halo%20saya%20mau%20pesan%20Jasuke%20Cup%20Besar" target="_blank" class="btn btn-warning rounded-pill px-4 fw-bold mt-2">
+                                <i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Sate -->
+                <div class="tab-pane fade" id="sate">
+                    <div class="card custom-card border-start border-danger border-4">
+                        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1000&auto=format&fit=crop" class="menu-img" alt="Menu Sate">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h3 class="card-title text-danger fw-bold mb-0">Sate Pilihan Spesial</h3>
+                                <span class="badge bg-success fs-5">Mulai Rp 15.000</span>
+                            </div>
+                            <h5 class="fw-bold mt-3">Deskripsi Menu:</h5>
+                            <p class="text-muted">Sate berbaur bumbu khas dengan daging empuk gurih yang dibakar sempurna. Sangat cocok disajikan bersama minuman dingin.</p>
+                            
+                            <a href="https://wa.me/628566277828?text=Halo%20saya%20mau%20pesan%20Menu%20Sate" target="_blank" class="btn btn-danger rounded-pill px-4 fw-bold mt-2">
+                                <i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOKASI OUTLET -->
+    <section id="lokasi" class="py-5">
+        <div class="container py-4">
+            <h2 class="text-center section-title">LOKASI OUTLET</h2>
+            
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-8">
+                    <div class="map-container ratio ratio-16x9">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.919072263004!2d98.63795089999999!3d3.6059991999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312e6ca83799d5%3A0x6bf3f11c546908ed!2sLAPANGAN%20JASDAM%20I%2FBB!5e0!3m2!1sid!2sid!4v1791644872599!5m2!1sid!2sid" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card custom-card p-4">
+                        <h4 class="fw-bold text-warning mb-3"><i class="bi bi-geo-alt me-2"></i>Alamat Outlet</h4>
+                        
+                        <div class="mb-4">
+                            <label class="fw-bold text-muted d-block"><i class="bi bi-building text-warning me-1"></i> Stand / Kantin:</label>
+                            <p class="mb-0 fw-semibold">Kantin Jasdam I/BB</p>
+                        </div>
+
+                        <a href="https://maps.google.com" 
+                           target="_blank" 
+                           class="btn btn-warning btn-lg w-100 rounded-pill shadow fw-bold">
+                            <i class="bi bi-sign-turn-right me-2"></i>Petunjuk Rute / Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="py-5 bg-white">
+        <div class="container py-4">
+            <h2 class="text-center section-title">Hubungi Kami</h2>
+            
+            <div class="row g-4 mt-2 justify-content-center">
+                <div class="col-md-4 text-center">
+                    <div class="card custom-card p-4 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-envelope-at text-warning fs-1 mb-3 d-block"></i>
+                            <h5 class="fw-bold">Email Pesanan</h5>
+                            <p class="text-muted">szesnygrandprix@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="card custom-card p-4 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-whatsapp text-success fs-1 mb-3 d-block"></i>
+                            <h5 class="fw-bold">WhatsApp Admin</h5>
+                            <p class="text-muted">+62 856-6277-828</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="card custom-card p-4 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-instagram text-danger fs-1 mb-3 d-block"></i>
+                            <h5 class="fw-bold">Instagram</h5>
+                            <p class="text-muted">@jasuke_mantap</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h5 class="d-flex align-items-center mb-3">
+                        <i class="bi bi-cup-hot-fill text-warning me-2"></i> Jasuke Mantap
+                    </h5>
+                    <p>Kedai cemilan manis & lezat dengan kualitas terbaik. Menerima pesanan langsung dan pengiriman sekitar lokasi.</p>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#beranda"><i class="bi bi-chevron-right me-1"></i> Beranda</a></li>
+                        <li class="mb-2"><a href="#tentang"><i class="bi bi-chevron-right me-1"></i> Tentang Kami</a></li>
+                        <li class="mb-2"><a href="#menu"><i class="bi bi-chevron-right me-1"></i> Daftar Menu</a></li>
+                        <li class="mb-2"><a href="#lokasi"><i class="bi bi-chevron-right me-1"></i> Lokasi Outlet</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Catatan Usaha</h5>
+                    <p class="mb-1"><i class="bi bi-check-circle me-1 text-warning"></i> Bahan Selalu Fresh</p>
+                    <p class="mb-1"><i class="bi bi-check-circle me-1 text-warning"></i> Bersih & Higienis</p>
+                    <p class="mb-1"><i class="bi bi-check-circle me-1 text-warning"></i> Pelayanan Ramah</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p class="mb-0">&copy; 2026 Jasuke Mantap. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
